@@ -1,0 +1,67 @@
+@mixin responsive($breakpoint) {
+  @if ($breakpoint == laptop) {
+    @media (max-width: 90em) {
+      @content;
+    } // 75em 1440px
+  }
+
+  @if ($breakpoint == tabland) {
+    @media (max-width: 75em) {
+      @content;
+    } // 75em 1200px
+  }
+
+  @if ($breakpoint == tabport) {
+    @media (max-width: 64em) {
+      @content;
+    } // 1024 64em
+  }
+
+  @if ($breakpoint == tablet) {
+    @media (max-width: 48em) {
+      @content;
+    } // 768px
+  }
+
+  @if ($breakpoint == largephone) {
+    @media (max-width: 37.5em) {
+      @content;
+    } // 600px
+  }
+
+  @if ($breakpoint == mediumphone) {
+    @media (max-width: 26.8em) {
+      @content;
+    } // 425px
+  }
+
+  @if ($breakpoint == smallphone) {
+    @media (max-width: 23.5em) {
+      @content;
+    } // 375px
+  }
+
+  @if ($breakpoint == threephone) {
+    @media (max-width: 22.5em) {
+      @content;
+    } // 360
+  }
+
+  @if ($breakpoint == samllerphone) {
+    @media (max-width: 21.3em) {
+      @content;
+    } // 342
+  }
+
+  @if ($breakpoint == smallestphone) {
+    @media (max-width: 20em) {
+      @content;
+    } // 320
+  }
+
+  @if ($breakpoint == largedesktop) {
+    @media (min-width: 112.5em) {
+      @content;
+    } // 1800px
+  }
+}

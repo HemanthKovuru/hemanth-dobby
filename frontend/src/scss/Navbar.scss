@@ -1,0 +1,48 @@
+.navbar {
+  position: relative;
+
+  &__container {
+    box-shadow: 0 3px 6px #0000000f;
+  }
+  height: 7rem;
+  margin: 0 auto;
+
+  display: grid;
+  width: 114rem;
+
+  margin: 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  line-height: 7rem;
+  align-items: right;
+}
+
+.btn {
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  outline: none;
+
+  //   &-signin {
+  //     margin-right: 2rem;
+  //   }
+
+  &-signup {
+    margin-left: 2rem;
+    background-color: rgb(236, 236, 236);
+  }
+
+  &-upload {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: #fff;
+  }
+
+  &-signout {
+  }
+}
+
+// .auth {
+// }
