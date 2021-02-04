@@ -54,13 +54,9 @@ const Home = () => {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:4000/api/v1/users/upload",
-        form,
-        {
-          withCredentials: true,
-        }
-      );
+      const res = await axios.post("/api/v1/users/upload", form, {
+        withCredentials: true,
+      });
       if (res.data.status === "success") {
         alert("image uploaded.");
         window.location.reload();
@@ -73,12 +69,9 @@ const Home = () => {
 
   // get images to display
   const getImages = async () => {
-    const { data } = await axios.get(
-      "http://localhost:4000/api/v1/users/images",
-      {
-        withCredentials: true,
-      }
-    );
+    const { data } = await axios.get("/api/v1/users/images", {
+      withCredentials: true,
+    });
     localStorage.setItem("userImages", JSON.stringify(data.data.images));
     setImages(data.data.images);
     console.log(data);
