@@ -21,6 +21,7 @@ app.use(cookieParser());
 
 // static files
 app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/public/images`));
 
 // routes
 app.use("/api/v1/users", userRouter);
