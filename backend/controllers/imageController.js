@@ -1,15 +1,18 @@
 const Image = require("./../models/imageModel");
 const multer = require("multer");
+const sharp = require("sharp");
 
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, `${__dirname}/backend/public/images`);
+    cb(null, "backend/public/images");
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split("/")[1];
     cb(null, `user-${req.user.id}-${Date.now()}.${ext}`);
   },
 });
+
+// const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
   if (file.mimetype.startsWith("image")) {
@@ -23,6 +26,17 @@ const multerFilter = (req, file, cb) => {
 
 const upload = multer({ storage: multerStorage, fileFilter: multerFilter });
 exports.alterImage = upload.single("image");
+
+// exports.resizeUserPhoto = (req, res, next) => {
+//   if (!req.file) return next();
+//   req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
+
+//   sharp(req.file.buffer)
+//     .toFormat("jpeg")
+//     .toFile(`${__dirname}/backend/public/images/${req.file.filename}`);
+
+//   next();
+// };
 
 exports.uploadImage = async (req, res, next) => {
   try {
